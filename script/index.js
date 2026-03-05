@@ -30,6 +30,77 @@ const loadLevelWord = (id) => {
     });
 };
 
+const loadWordDetails = async(id) => {
+    const url = `https://openapi.programming-hero.com/api/word/${id}`;
+    const res = await fetch(url);
+    const details = await res.json();
+    displayWordDetails(details.data);
+};
+
+
+// word details for modal
+
+// {word: 'Eager', meaning: 'আগ্রহী', pronunciation: 'ইগার', level: 1, sentence: 'The kids were eager to open their gifts.', …}
+// id
+// : 
+// 5
+// level
+// : 
+// 1
+// meaning
+// : 
+// "আগ্রহী"
+// partsOfSpeech
+// : 
+// "adjective"
+// points
+// : 
+// 1
+// pronunciation
+// : 
+// "ইগার"
+// sentence
+// : 
+// "The kids were eager to open their gifts."
+// synonyms
+// : 
+// Array(3)
+// 0
+// : 
+// "enthusiastic"
+// 1
+// : 
+// "excited"
+// 2
+// : 
+// "keen"
+
+const displayWordDetails = (word) =>{
+    console.log(word);
+    const detailsBox = document.getElementById("details-container");
+    detailsBox.innerHTML = `
+        <div>
+            <h2 class="text-2xl font-bold">${word.word} (<i class="fa-solid fa-microphone-lines"></i>:${word.pronunciation})</h2>
+            </div>
+            <div>
+                <h2 class="font-bold">Meaning</h2>
+                <p>${word.meaning}</p>
+            </div>
+            <div>
+                <h2 class="font-bold">Example</h2>
+                <p>${word.sentence}</p>
+            </div>
+            <div>
+                <h2 class="font-bold">Synonym</h2>
+                <span class="btn">yuu</span>
+                <span class="btn">yuu</span>
+                <span class="btn">yuu</span>
+                
+            </div>
+    `;
+    document.getElementById("word_modal").showModal();
+};
+
 const displayLevelWord = (words) =>{
     const wordContainer = document.getElementById('word-container');
     wordContainer.innerHTML = "";
@@ -54,7 +125,7 @@ const displayLevelWord = (words) =>{
                 <p class="font-semibold">Meaning /Pronounciation</p>
                 <div class="font-bangla text-2xl font-medium">${word.meaning ? word.meaning : "অর্থ পাওয়া যায়নি"} / ${word.pronunciation ? word.pronunciation : "উচ্চারণ পাওয়া যায়নি"}</div>
                 <div class="flex justify-between items-center">
-                    <button class="btn bg-[#1A91FF20] hover:bg-[#1A91FF80]"><i class="fa-solid fa-circle-info"></i></button>
+                    <button onclick="loadWordDetails(${word.id})" class="btn bg-[#1A91FF20] hover:bg-[#1A91FF80]"><i class="fa-solid fa-circle-info"></i></button>
                     <button class="btn bg-[#1A91FF20] hover:bg-[#1A91FF80]"><i class="fa-solid fa-play"></i></button>
                 </div>
             </div>
