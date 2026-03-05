@@ -3,6 +3,12 @@ const createElements = (arr) =>{
     return htmlElements.join(" ");
 };
 
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
+
 const manageSpinner = (status) => {
     if(status === true){
         document.getElementById('spinner').classList.remove("hidden");
@@ -126,8 +132,8 @@ const displayLevelWord = (words) =>{
         wordContainer.innerHTML = `
             <div class="text-center col-span-full py-10 space-y-6 font-bangla">
                 <img class="mx-auto" src="./assets/alert-error.png" alt="">
-                <p class="text-xl font-medium text-gray-400">আপনি এখনো কোন Lesson Select করেন নি</p>
-                <h2 class="text-4xl font-bold">একটি Lesson Select করুন।</h2>
+                <p class="text-xl font-medium text-gray-400">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+                <h2 class="text-4xl font-bold">নেক্সট Lesson এ যান</h2>
             </div>
         `;
         manageSpinner(false);
@@ -144,7 +150,7 @@ const displayLevelWord = (words) =>{
                 <div class="font-bangla text-2xl font-medium">${word.meaning ? word.meaning : "অর্থ পাওয়া যায়নি"} / ${word.pronunciation ? word.pronunciation : "উচ্চারণ পাওয়া যায়নি"}</div>
                 <div class="flex justify-between items-center">
                     <button onclick="loadWordDetails(${word.id})" class="btn bg-[#1A91FF20] hover:bg-[#1A91FF80]"><i class="fa-solid fa-circle-info"></i></button>
-                    <button class="btn bg-[#1A91FF20] hover:bg-[#1A91FF80]"><i class="fa-solid fa-play"></i></button>
+                    <button onclick="pronounceWord('${word.word}')" class="btn bg-[#1A91FF20] hover:bg-[#1A91FF80]"><i class="fa-solid fa-play"></i></button>
                 </div>
             </div>
         `;
