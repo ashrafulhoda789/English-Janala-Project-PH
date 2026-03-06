@@ -199,3 +199,32 @@ document.getElementById('btn-search').addEventListener('click',
         });
     }
 );
+
+const cardContainer = document.querySelector("#card-container");
+
+cardContainer.addEventListener('click',
+    (event) => {
+        const card = event.target.closest(".question-card");
+
+        if(event.target.closest(".minus")){
+            const paragraph = card.querySelector(".answer");
+            const add = card.querySelector(".add");
+            const minus = card.querySelector(".minus");
+
+            paragraph.classList.add("hidden");
+            minus.classList.add("hidden")
+            add.classList.remove("hidden");
+
+        }
+        else if(event.target.closest(".add")){
+            const paragraph = card.querySelector(".answer");
+            const add = card.querySelector(".add");
+            const minus = card.querySelector(".minus");
+
+            console.log("Add clicked");
+            paragraph.classList.remove("hidden");
+            minus.classList.remove("hidden")
+            add.classList.add("hidden");
+        }
+    }
+)

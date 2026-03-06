@@ -110,7 +110,7 @@
         </div>
     </section>
 
-    <section id="word-container" class="bg-gray-100 p-2 md:p-5 lg:p-10 w-11/12 mx-auto my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <section id="word-container" class="bg-gray-100 p-2 md:p-5 lg:p-10 w-11/12 mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         <div class="text-center col-span-full py-10 space-y-6 font-bangla">
             <p class="text-xl font-medium text-gray-400">আপনি এখনো কোন Lesson Select করেন নি</p>
             <h2 class="text-4xl font-bold">একটি Lesson Select করুন।</h2>
@@ -133,44 +133,51 @@
     </div>
     </dialog>
 
-    <section class="w-11/12 mx-auto my-10">
+    <section class="w-11/12 mx-auto my-24">
         <h2 class="text-4xl font-bold mb-8 text-center"><span class="text-sky-400">Frequently</span> Asked Questions</h2>
 
-        <div class="flex flex-col gap-4">
-            <div class="bg-[#F8F8F8] rounded-2xl px-4 py-6 space-y-3.5">
+        <div id="card-container" class="card-container flex flex-col gap-4">
+            <div class="question-card bg-[#F8F8F8] rounded-2xl px-4 py-6 space-y-3.5">
                 <div class="flex justify-between items-center">
                     <h3 class="font-medium text-[16px]">1. How can I start learning English on this website?</h3>
-                    <span id="minus"><i class="fa-solid fa-minus"></i></span>
+                    <span id="minus" class="minus"><i class="fa-solid fa-minus"></i></span>
+                    <span id="add" class="hidden add"><i class="fa-solid fa-plus"></i></span>
                 </div>
-                <p class="text-[#62748E]">You can start by exploring our beginner lessons, interactive exercises, and quizzes. We also offer structured courses to guide you step by step.</p>
+                <p id="answer" class="text-[#62748E] answer">You can start by exploring our beginner lessons, interactive exercises, and quizzes. We also offer structured courses to guide you step by step.</p>
             </div>
-            <div class="bg-[#F8F8F8] rounded-2xl px-4 py-6 space-y-3.5">
+            <div class="question-card bg-[#F8F8F8] rounded-2xl px-4 py-6 space-y-3.5">
                 <div class="flex justify-between items-center">
                     <h3 class="font-medium text-[16px]">2. Is this website free to use?</h3>
-                    <span id="minus"><i class="fa-solid fa-minus"></i></span>
+                    <span id="minus" class="hidden minus"><i class="fa-solid fa-minus"></i></span>
+                    <span id="add" class="add"><i class="fa-solid fa-plus"></i></span>
                 </div>
+                <p id="answer" class="text-[#62748E] answer hidden">Yes. You can use this website free.</p>
 
             </div>
-            <div class="bg-[#F8F8F8] rounded-2xl px-4 py-6 space-y-3.5">
+            <div class="question-card bg-[#F8F8F8] rounded-2xl px-4 py-6 space-y-3.5">
                 <div class="flex justify-between items-center">
                     <h3 class="font-medium text-[16px]">3. Do I need to create an account?</h3>
-                    <span id="minus"><i class="fa-solid fa-minus"></i></span>
+                    <span id="minus" class="hidden minus"><i class="fa-solid fa-minus"></i></span>
+                    <span id="add" class="add"><i class="fa-solid fa-plus"></i></span>
                 </div>
-
+                <p id="answer" class="text-[#62748E] answer hidden">Yes. You have to create an account for more features to use</p>
             </div>
-            <div class="bg-[#F8F8F8] rounded-2xl px-4 py-6 space-y-3.5">
+            <div class="question-card bg-[#F8F8F8] rounded-2xl px-4 py-6 space-y-3.5">
                 <div class="flex justify-between items-center">
                     <h3 class="font-medium text-[16px]">4. How can I build my English vocabulary?</h3>
-                    <span id="minus"><i class="fa-solid fa-minus"></i></span>
+                    <span id="minus" class="hidden minus"><i class="fa-solid fa-minus"></i></span>
+                    <span id="add" class="add"><i class="fa-solid fa-plus"></i></span>
                 </div>
+                <p id="answer" class="text-[#62748E] answer hidden">By combining reading, daily practice, listening, and consistent usage, you can steadily expand your English vocabulary over time.</p>
 
             </div>
-            <div class="bg-[#F8F8F8] rounded-2xl px-4 py-6 space-y-3.5">
+            <div class="question-card bg-[#F8F8F8] rounded-2xl px-4 py-6 space-y-3.5">
                 <div class="flex justify-between items-center">
                     <h3 class="font-medium text-[16px]">5. Do you offer certificates for completed courses?</h3>
-                    <span id="minus"><i class="fa-solid fa-minus"></i></span>
+                    <span id="minus" class="hidden minus"><i class="fa-solid fa-minus"></i></span>
+                    <span id="add" class="add"><i class="fa-solid fa-plus"></i></span>
                 </div>
-                
+                <p id="answer" class="text-[#62748E] answer hidden">Yes, we provide a certificate of completion once you successfully finish a course.</p>
             </div>
         </div>
     </section>
